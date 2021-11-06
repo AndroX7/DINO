@@ -41,14 +41,12 @@ func main() {
 			log.Println(err)
 			continue
 		}
-
-		if err := rows.Err(); err != nil {
-			log.Fatal(err)
-		}
-
 		animals = append(animals, a)
 	}
 
+	if err := rows.Err(); err != nil {
+		log.Fatal(err)
+	}
 	fmt.Println(animals)
 
 	// query single row
